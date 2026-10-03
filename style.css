@@ -15,7 +15,7 @@
 /* Name first, then the warehouse: a single vertical opening sequence. */
 .hero{height:auto;max-height:none;min-height:0;padding-bottom:72px}
 .intro{width:88%;margin:35px 6% 0;pointer-events:auto}
-h1{font-size:clamp(82px,11.5vw,165px);margin:28px 0 26px;animation:name-arrival .8s ease-out both}
+h1{font-size:clamp(82px,11.5vw,165px);margin:28px 0 26px}
 h1>span{padding-left:4%}
 .intro .tagline{margin-top:0}
 .intro-note{margin-bottom:0}
@@ -53,3 +53,11 @@ h1>span{padding-left:4%}
 .contact-links>a:last-child{font-size:15px;color:var(--muted)}
 @media(max-width:1000px){.background-grid{grid-template-columns:1fr}.background-note{max-width:650px;padding-top:45px}.entry-heading>span{font-size:10px}}
 @media(max-width:600px){.background-row{grid-template-columns:62px minmax(0,1fr);gap:15px;padding:27px 0}.year{font-size:35px;letter-spacing:-2px}.entry-heading h3{font-size:19px}.background-row p{font-size:14px}nav{gap:14px}nav a[href="#about"]{display:none}nav a:last-child{padding:10px 13px}header{margin:0 5%}.wordmark{font-size:14px}}
+
+/* Name treatment: one clipped line wrapper per name line, one span per letter. */
+h1>.name-line{display:block;overflow:hidden;padding-top:.12em;margin-top:-.12em}
+h1>.name-line:first-child{padding-left:0}
+h1>.name-line:last-child{padding-bottom:.06em;margin-bottom:-.06em}
+h1 .letter{display:inline-block;animation:letter-rise 1s cubic-bezier(.22,1,.36,1) backwards;animation-delay:calc(var(--i,0)*45ms);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+h1 .letter:hover{transform:translateY(-6%)}
+@keyframes letter-rise{from{opacity:0;transform:translateY(110%) rotate(8deg)}to{opacity:1;transform:translateY(0) rotate(0deg)}}
